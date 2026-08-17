@@ -1,0 +1,1170 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Ridim Shop - STYLE | QUALITY | TRUST">
+<title>Ridim Shop 2.0</title>
+
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#f7f7f7;
+  color:#222;
+  transition:.3s;
+}
+body.dark{
+  background:#121212;
+  color:#eee;
+}
+button,input{font:inherit}
+
+header{
+  background:#ff9800;
+  padding:10px;
+  position:sticky;
+  top:0;
+  z-index:1000;
+  box-shadow:0 2px 8px #0002;
+}
+.header-top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  max-width:1200px;
+  margin:auto;
+}
+.logo{
+  height:50px;
+  max-width:160px;
+  object-fit:contain;
+}
+.header-actions{
+  display:flex;
+  gap:7px;
+}
+.icon-btn{
+  border:0;
+  background:#fff;
+  border-radius:50%;
+  width:42px;
+  height:42px;
+  cursor:pointer;
+  font-size:19px;
+  position:relative;
+}
+.badge{
+  position:absolute;
+  top:-4px;
+  right:-3px;
+  background:#e53935;
+  color:white;
+  border-radius:50%;
+  min-width:18px;
+  height:18px;
+  font-size:11px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.search{
+  max-width:1200px;
+  margin:auto;
+  padding:10px;
+  position:relative;
+}
+.search input{
+  width:100%;
+  padding:13px 45px 13px 16px;
+  border:1px solid #ddd;
+  border-radius:25px;
+  outline:none;
+  background:#fff;
+}
+.search-icon{
+  position:absolute;
+  right:25px;
+  top:20px;
+}
+
+.banner{
+  max-width:1200px;
+  margin:auto;
+}
+.banner img{
+  width:100%;
+  display:block;
+  max-height:350px;
+  object-fit:cover;
+}
+
+.quick-menu{
+  display:flex;
+  gap:8px;
+  padding:10px;
+  max-width:1200px;
+  margin:auto;
+  overflow-x:auto;
+}
+.quick-menu button{
+  border:0;
+  background:white;
+  padding:9px 15px;
+  border-radius:20px;
+  white-space:nowrap;
+  cursor:pointer;
+  box-shadow:0 2px 6px #0001;
+}
+.dark .quick-menu button{
+  background:#242424;
+  color:white;
+}
+
+.filter{
+  display:flex;
+  gap:8px;
+  padding:10px;
+  overflow-x:auto;
+  background:#f5f5f5;
+  position:sticky;
+  top:70px;
+  z-index:20;
+}
+.dark .filter{background:#1e1e1e}
+.filter button{
+  padding:7px 15px;
+  border:1px solid #ff9800;
+  background:#fff;
+  border-radius:20px;
+  font-size:13px;
+  cursor:pointer;
+  white-space:nowrap;
+}
+.filter button.active{
+  background:#ff9800;
+  color:#fff;
+}
+
+.section-title{
+  max-width:1200px;
+  margin:20px auto 5px;
+  padding:0 10px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.section-title h2{
+  margin:0;
+  font-size:21px;
+}
+.count{
+  font-size:13px;
+  color:#777;
+}
+
+.grid{
+  max-width:1200px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  padding:10px;
+  padding-bottom:100px;
+}
+.card{
+  border:1px solid #eee;
+  border-radius:10px;
+  padding:8px;
+  background:#fff;
+  box-shadow:0 2px 8px #0000000b;
+  position:relative;
+  transition:.2s;
+}
+.dark .card{
+  background:#1f1f1f;
+  border-color:#333;
+}
+.card:hover{
+  transform:translateY(-2px);
+}
+.card-img{
+  position:relative;
+}
+.card img{
+  width:100%;
+  height:150px;
+  object-fit:cover;
+  border-radius:7px;
+}
+.wish{
+  position:absolute;
+  right:7px;
+  top:7px;
+  width:32px;
+  height:32px;
+  border:0;
+  border-radius:50%;
+  background:#fff;
+  cursor:pointer;
+  font-size:18px;
+}
+.wish.active{color:#e91e63}
+.card h3{
+  font-size:13px;
+  margin:7px 0;
+  height:36px;
+  overflow:hidden;
+}
+.price{
+  color:#d32f2f;
+  font-weight:bold;
+}
+.old{
+  text-decoration:line-through;
+  color:#999;
+  font-size:12px;
+  margin-left:4px;
+}
+.rating{
+  font-size:11px;
+  margin-top:4px;
+}
+.card-buttons{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:5px;
+  margin-top:7px;
+}
+.btn{
+  border:0;
+  background:#ff9800;
+  color:#fff;
+  text-align:center;
+  padding:8px 4px;
+  border-radius:6px;
+  text-decoration:none;
+  font-size:12px;
+  cursor:pointer;
+}
+.btn.secondary{
+  background:#1e2942;
+}
+.btn.green{
+  background:#25D366;
+}
+
+.no-result{
+  display:none;
+  text-align:center;
+  padding:40px 10px;
+  color:#777;
+}
+
+/* MODAL */
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:#0009;
+  z-index:3000;
+  align-items:center;
+  justify-content:center;
+  padding:15px;
+}
+.modal.show{display:flex}
+.modal-box{
+  width:100%;
+  max-width:430px;
+  max-height:90vh;
+  overflow:auto;
+  background:white;
+  color:#222;
+  border-radius:14px;
+  padding:20px;
+  position:relative;
+}
+.dark .modal-box{
+  background:#242424;
+  color:#fff;
+}
+.close{
+  position:absolute;
+  right:12px;
+  top:8px;
+  border:0;
+  background:none;
+  font-size:28px;
+  cursor:pointer;
+}
+.modal-box input{
+  width:100%;
+  padding:11px;
+  border:1px solid #ddd;
+  border-radius:7px;
+  margin:6px 0;
+}
+.full-btn{
+  width:100%;
+  padding:11px;
+  border:0;
+  border-radius:7px;
+  background:#ff9800;
+  color:white;
+  cursor:pointer;
+  margin-top:8px;
+}
+
+/* CART */
+.cart-item{
+  display:flex;
+  gap:10px;
+  padding:10px 0;
+  border-bottom:1px solid #ddd;
+}
+.cart-item img{
+  width:65px;
+  height:65px;
+  object-fit:cover;
+  border-radius:6px;
+}
+.cart-info{flex:1}
+.qty{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-top:5px;
+}
+.qty button{
+  width:25px;
+  height:25px;
+  border:0;
+  background:#ff9800;
+  color:white;
+  border-radius:4px;
+}
+
+/* BOTTOM NAV */
+.bottom-nav{
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  background:#fff;
+  box-shadow:0 -2px 10px #0002;
+  display:flex;
+  justify-content:space-around;
+  padding:8px 3px;
+  z-index:1500;
+}
+.dark .bottom-nav{
+  background:#1e1e1e;
+}
+.bottom-nav button{
+  border:0;
+  background:none;
+  font-size:11px;
+  cursor:pointer;
+  color:#333;
+}
+.dark .bottom-nav button{color:#fff}
+.bottom-nav span{
+  display:block;
+  font-size:20px;
+}
+
+/* SUPPORT */
+.whatsapp{
+  position:fixed;
+  bottom:75px;
+  right:15px;
+  background:#25D366;
+  color:#fff;
+  width:55px;
+  height:55px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:29px;
+  text-decoration:none;
+  box-shadow:0 4px 10px #0004;
+  z-index:1600;
+}
+
+footer{
+  background:#1e2942;
+  color:#fff;
+  padding:30px 15px 90px;
+  font-size:13px;
+}
+.footer-grid{
+  max-width:1200px;
+  margin:auto;
+  display:grid;
+  gap:20px;
+}
+footer h4{
+  margin-bottom:8px;
+  color:#ff9800;
+}
+footer a{
+  color:#fff;
+  text-decoration:none;
+  display:block;
+  margin:5px 0;
+}
+
+/* DESKTOP */
+@media(min-width:768px){
+  .grid{
+    grid-template-columns:repeat(4,1fr);
+  }
+  .footer-grid{
+    grid-template-columns:repeat(3,1fr);
+  }
+  .bottom-nav{
+    display:none;
+  }
+  .whatsapp{
+    bottom:20px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-top">
+
+    <img src="logo.png" class="logo" alt="Ridim Shop">
+
+    <div class="header-actions">
+      <button class="icon-btn" onclick="openModal('loginModal')" title="Login">
+        👤
+      </button>
+
+      <button class="icon-btn" onclick="openCart()" title="Cart">
+        🛒
+        <span class="badge" id="cartCount">0</span>
+      </button>
+
+      <button class="icon-btn" onclick="toggleDark()" title="Dark Mode">
+        🌙
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<!-- SEARCH -->
+<div class="search">
+  <input
+    id="searchInput"
+    type="search"
+    placeholder="🔎 পণ্য খুঁজুন..."
+    oninput="searchProducts()"
+  >
+  <span class="search-icon">🔍</span>
+</div>
+
+<!-- BANNER -->
+<div class="banner">
+  <img src="banner.png" alt="Ridim Shop Banner">
+</div>
+
+<!-- QUICK MENU -->
+<div class="quick-menu">
+
+  <button onclick="scrollToProducts()">🛍️ Products</button>
+
+  <button onclick="openCart()">🛒 Cart</button>
+
+  <button onclick="openModal('loginModal')">
+    👤 Login
+  </button>
+
+  <button onclick="openModal('scannerModal')">
+    📷 Scanner
+  </button>
+
+  <button onclick="openModal('supportModal')">
+    💬 Support
+  </button>
+
+</div>
+
+<!-- CATEGORY -->
+<div class="filter">
+
+  <button class="active"
+    onclick="filterItems('all',this)">
+    সব
+  </button>
+
+  <button onclick="filterItems('beauty',this)">
+    Beauty
+  </button>
+
+  <button onclick="filterItems('fashion',this)">
+    Fashion
+  </button>
+
+  <button onclick="filterItems('home',this)">
+    Home
+  </button>
+
+  <button onclick="filterItems('health',this)">
+    Health
+  </button>
+
+</div>
+
+<!-- PRODUCTS -->
+<div class="section-title" id="products">
+  <h2>🛍️ Featured Products</h2>
+  <span class="count" id="productCount"></span>
+</div>
+
+<div class="grid" id="productGrid">
+
+  <!-- 1 -->
+  <div class="card"
+       data-cat="beauty"
+       data-name="Himalaya Face Wash B1G1 100ml"
+       data-price="230">
+
+    <div class="card-img">
+      <img src="himalaya-facewash.jpg" alt="Himalaya Face Wash">
+
+      <button class="wish"
+        onclick="toggleWish(this)">
+        ♡
+      </button>
+    </div>
+
+    <h3>Himalaya Face Wash B1G1 100ml</h3>
+
+    <span class="price">৳230</span>
+    <span class="old">৳300</span>
+
+    <div class="rating">⭐ 4.8</div>
+
+    <div class="card-buttons">
+
+      <button class="btn secondary"
+        onclick="viewProduct(this)">
+        বিস্তারিত
+      </button>
+
+      <button class="btn"
+        onclick="addToCart(this)">
+        🛒 Cart
+      </button>
+
+    </div>
+
+    <a class="btn green"
+       href="https://s.daraz.com.bd/s.bu1Bc?cc"
+       target="_blank">
+       অর্ডার
+    </a>
+
+  </div>
+
+
+  <!-- 2 -->
+  <div class="card"
+       data-cat="home"
+       data-name="LED Dream Mushroom Lamp USB"
+       data-price="99">
+
+    <div class="card-img">
+      <img src="led-mushroom-lamp.jpg" alt="LED Lamp">
+
+      <button class="wish"
+        onclick="toggleWish(this)">
+        ♡
+      </button>
+    </div>
+
+    <h3>LED Dream Mushroom Lamp USB</h3>
+
+    <span class="price">৳99</span>
+    <span class="old">৳250</span>
+
+    <div class="rating">⭐ 4.7</div>
+
+    <div class="card-buttons">
+
+      <button class="btn secondary"
+        onclick="viewProduct(this)">
+        বিস্তারিত
+      </button>
+
+      <button class="btn"
+        onclick="addToCart(this)">
+        🛒 Cart
+      </button>
+
+    </div>
+
+    <a class="btn green"
+       href="https://s.daraz.com.bd/s.bu1Em?cc"
+       target="_blank">
+       অর্ডার
+    </a>
+
+  </div>
+
+
+  <!-- 3 -->
+  <div class="card"
+       data-cat="fashion"
+       data-name="Square Sunglasses UV400"
+       data-price="499">
+
+    <div class="card-img">
+      <img src="square-sunglasses.jpg" alt="Sunglasses">
+
+      <button class="wish"
+        onclick="toggleWish(this)">
+        ♡
+      </button>
+    </div>
+
+    <h3>Square Sunglasses UV400</h3>
+
+    <span class="price">৳499</span>
+    <span class="old">৳900</span>
+
+    <div class="rating">⭐ 4.6</div>
+
+    <div class="card-buttons">
+
+      <button class="btn secondary"
+        onclick="viewProduct(this)">
+        বিস্তারিত
+      </button>
+
+      <button class="btn"
+        onclick="addToCart(this)">
+        🛒 Cart
+      </button>
+
+    </div>
+
+    <a class="btn green"
+       href="https://s.daraz.com.bd/s.bu1ui?cc"
+       target="_blank">
+       অর্ডার
+    </a>
+
+  </div>
+
+
+  <!-- 4 -->
+  <div class="card"
+       data-cat="fashion"
+       data-name="Moodstrings Guddi Bra"
+       data-price="209">
+
+    <div class="card-img">
+      <img src="guddi-bra.jpg" alt="Guddi Bra">
+
+      <button class="wish"
+        onclick="toggleWish(this)">
+        ♡
+      </button>
+    </div>
+
+    <h3>Moodstrings Guddi Bra</h3>
+
+    <span class="price">৳209</span>
+    <span class="old">৳500</span>
+
+    <div class="rating">⭐ 4.5</div>
+
+    <div class="card-buttons">
+
+      <button class="btn secondary"
+        onclick="viewProduct(this)">
+        বিস্তারিত
+      </button>
+
+      <button class="btn"
+        onclick="addToCart(this)">
+        🛒 Cart
+      </button>
+
+    </div>
+
+    <a class="btn green"
+       href="https://s.daraz.com.bd/s.bu1jf?cc"
+       target="_blank">
+       অর্ডার
+    </a>
+
+  </div>
+
+
+  <!-- 5 -->
+  <div class="card"
+       data-cat="home"
+       data-name="Smart Remote Lamp Holder"
+       data-price="225">
+
+    <div class="card-img">
+      <img src="smart-lamp-holder.jpg" alt="Smart Holder">
+
+      <button class="wish"
+        onclick="toggleWish(this)">
+        ♡
+      </button>
+    </div>
+
+    <h3>Smart Remote Lamp Holder</h3>
+
+    <span class="price">৳225</span>
+    <span class="old">৳540</span>
+
+    <div class="rating">⭐ 4.7</div>
+
+    <div class="card-buttons">
+      <button class="btn secondary"
+        onclick="viewProduct(this)">
+        বিস্তারিত
+      </button>
+
+      <button class="btn"
+        onclick="addToCart(this)">
+        🛒 Cart
+      </button>
+    </div>
+
+    <a class="btn green"
+       href="https://s.daraz.com.bd/s.bu16z?cc"
+       target="_blank">
+       অর্ডার
+    </a>
+
+  </div>
+
+
+  <!-- 6 -->
+  <div class="card"
+       data-cat="beauty"
+       data-name="TONO HIME Fruit Gel 100ml"
+       data-price="99">
+
+    <div class="card-img">
+      <img src="tono-hime-gel.jpg" alt="TONO HIME">
+
+      <button class="wish"
+        onclick="toggleWish(this)">
+        ♡
+      </button>
+    </div>
+
+    <h3>TONO HIME Fruit Gel 100ml</h3>
+
+    <span class="price">৳99</span>
+    <span class="old">৳300</span>
+
+    <div class="rating">⭐ 4.5</div>
+
+    <div class="card-buttons">
+      <button class="btn secondary"
+        onclick="viewProduct(this)">
+        বিস্তারিত
+      </button>
+
+      <button class="btn"
+        onclick="addToCart(this)">
+        🛒 Cart
+      </button>
+    </div>
+
+    <a class="btn green"
+       href="https://s.daraz.com.bd/s.bu1gT?cc"
+       target="_blank">
+       অর্ডার
+    </a>
+
+  </div>
+
+
+  <!-- 7 -->
+  <div class="card"
+       data-cat="fashion"
+       data-name="4 Pcs Printed Bra Combo"
+       data-price="169">
+
+    <div class="card-img">
+      <img src="4pcs-bra-combo.jpg" alt="Bra Combo">
+
+      <button class="wish"
+        onclick="toggleWish(this)">
+        ♡
+      </button>
+    </div>
+
+    <h3>4 Pcs Printed Bra Combo</h3>
+
+    <span class="price">৳169</span>
+    <span class="old">৳500</span>
+
+    <div class="rating">⭐ 4.4</div>
+
+    <div class="card-buttons">
+      <button class="btn secondary"
+        onclick="viewProduct(this)">
+        বিস্তারিত
+      </button>
+
+      <button class="btn"
+        onclick="addToCart(this)">
+        🛒 Cart
+      </button>
+    </div>
+
+    <a class="btn green"
+       href="https://s.daraz.com.bd/s.bu1Vv?cc"
+       target="_blank">
+       অর্ডার
+    </a>
+
+  </div>
+
+
+  <!-- 8 -->
+  <div class="card"
+       data-cat="beauty"
+       data-name="Parachute Onion Shampoo 160ml"
+       data-price="112">
+
+    <div class="card-img">
+      <img src="parachute-shampoo.jpg" alt="Parachute Shampoo">
+
+      <button class="wish"
+        onclick="toggleWish(this)">
+        ♡
+      </button>
+    </div>
+
+    <h3>Parachute Onion Shampoo 160ml</h3>
+
+    <span class="price">৳112</span>
+    <span class="old">৳140</span>
+
+    <div class="rating">⭐ 4.6</div>
+
+    <div class="card-buttons">
+      <button class="btn secondary"
+        onclick="viewProduct(this)">
+        বিস্তারিত
+      </button>
+
+      <button class="btn"
+        onclick="addToCart(this)">
+        🛒 Cart
+      </button>
+    </div>
+
+    <a class="btn green"
+       href="https://s.daraz.com.bd/s.bu1eP?cc"
+       target="_blank">
+       অর্ডার
+    </a>
+
+  </div>
+
+
+  <!-- 9 -->
+  <div class="card"
+       data-cat="home"
+       data-name="Auto LED Night Light Sensor"
+       data-price="75">
+
+    <div class="card-img">
+      <img src="led-night-light.jpg" alt="Night Light">
+
+      <button class="wish"
+        onclick="toggleWish(this)">
+        ♡
+      </button>
+    </div>
+
+    <h3>Auto LED Night Light Sensor</h3>
+
+    <span class="price">৳75</span>
+    <span class="old">৳330</span>
+
+    <div class="rating">⭐ 4.7</div>
+
+    <div class="card-buttons">
+      <button class="btn secondary"
+        onclick="viewProduct(this)">
+        বিস্তারিত
+      </button>
+
+      <button class="btn"
+        onclick="addToCart(this)">
+        🛒 Cart
+      </button>
+    </div>
+
+    <a class="btn green"
+       href="https://s.daraz.com.bd/s.bu1Wu?cc"
+       target="_blank">
+       অর্ডার
+    </a>
+
+  </div>
+
+
+  <!-- 10 -->
+  <div class="card"
+       data-cat="health"
+       data-name="EMS Mini Massager 2 Pad"
+       data-price="150">
+
+    <div class="card-img">
+      <img src="ems-massager.jpg" alt="EMS Massager">
+
+      <button class="wish"
+        onclick="toggleWish(this)">
+        ♡
+      </button>
+    </div>
+
+    <h3>EMS Mini Massager 2 Pad</h3>
+
+    <span class="price">৳150</span>
+    <span class="old">৳199</span>
+
+    <div class="rating">⭐ 4.3</div>
+
+    <div class="card-buttons">
+      <button class="btn secondary"
+        onclick="viewProduct(this)">
+        বিস্তারিত
+      </button>
+
+      <button class="btn"
+        onclick="addToCart(this)">
+        🛒 Cart
+      </button>
+    </div>
+
+    <a class="btn green"
+       href="https://s.daraz.com.bd/s.bu11J?cc"
+       target="_blank">
+       অর্ডার
+    </a>
+
+  </div>
+
+
+  <!-- 11 -->
+  <div class="card"
+       data-cat="beauty"
+       data-name="KamaSutra Spark Deodorant 150ml"
+       data-price="199">
+
+    <div class="card-img">
+      <img src="kamasutra-deo.jpg" alt="KamaSutra">
+
+      <button class="wish"
+        onclick="toggleWish(this)">
+        ♡
+      </button>
+    </div>
+
+    <h3>KamaSutra Spark Deodorant 150ml</h3>
+
+    <span class="price">৳199</span>
+    <span class="old">৳425</span>
+
+    <div class="rating">⭐ 4.5</div>
+
+    <div class="card-buttons">
+      <button class="btn secondary"
+        onclick="viewProduct(this)">
+        বিস্তারিত
+      </button>
+
+      <button class="btn"
+        onclick="addToCart(this)">
+        🛒 Cart
+      </button>
+    </div>
+
+    <a class="btn green"
+       href="https://s.daraz.com.bd/s.buYBJ?cc"
+       target="_blank">
+       অর্ডার
+    </a>
+
+  </div>
+
+</div>
+
+<div class="no-result" id="noResult">
+  😔 কোনো পণ্য পাওয়া যায়নি।
+</div>
+
+
+<!-- FOOTER -->
+<footer>
+
+  <div class="footer-grid">
+
+    <div>
+      <h4>Ridim Shop</h4>
+      <p>STYLE | QUALITY | TRUST</p>
+      <p>📍 ময়মনসিংহ, ফুলবাড়িয়া</p>
+    </div>
+
+    <div>
+      <h4>যোগাযোগ</h4>
+
+      <a href="https://wa.me/88019714674760"
+         target="_blank">
+        📱 WhatsApp
+      </a>
+
+      <a href="mailto:ridim1234567890@gmail.com">
+        📧 Gmail
+      </a>
+
+    </div>
+
+    <div>
+      <h4>পেমেন্ট</h4>
+      <p>💰 বিকাশ: 01971467476</p>
+      <p>💰 নগদ: 01607071748</p>
+    </div>
+
+  </div>
+
+  <p style="text-align:center;margin-top:25px;font-size:11px">
+    © 2026 Ridim Shop | All Rights Reserved
+  </p>
+
+</footer>
+
+
+<!-- WHATSAPP -->
+<a
+  href="https://wa.me/88019714674760"
+  class="whatsapp"
+  target="_blank">
+  💬
+</a>
+
+
+<!-- BOTTOM NAV -->
+<div class="bottom-nav">
+
+  <button onclick="scrollToProducts()">
+    <span>🏠</span>
+    Home
+  </button>
+
+  <button onclick="openCart()">
+    <span>🛒</span>
+    Cart
+  </button>
+
+  <button onclick="openModal('scannerModal')">
+    <span>📷</span>
+    Scanner
+  </button>
+
+  <button onclick="openModal('loginModal')">
+    <span>👤</span>
+    Account
+  </button>
+
+</div>
+
+
+<!-- LOGIN MODAL -->
+<div class="modal" id="loginModal">
+
+  <div class="modal-box">
+
+    <button class="close"
+      onclick="closeModal('loginModal')">
+      ×
+    </button>
+
+    <h2>👤 Ridim Shop Account</h2>
+
+    <input id="loginName"
+      type="text"
+      placeholder="আপনার নাম">
+
+    <input id="loginEmail"
+      type="email"
+      placeholder="Email">
+
+    <input
+      type="password"
+      placeholder="Password">
+
+    <button class="full-btn"
+      onclick="loginUser()">
+      Login / Register
+    </button>
+
+    <p id="loginMessage"></p>
+
+  </div>
+
+</div>
+
+
+<!-- CART MODAL -->
+<div class="modal" id="cartModal">
+
+  <div class="modal-box">
+
+    <button class="close"
+      onclick="closeModal('cartModal')">
+      ×
+    </button>
+
+    <h2>🛒 আপনার Cart</h2>
+
+    <div id="cartItems"></div>
+
+    <hr>
+
+    <h3>
+      মোট: ৳<span id="cartTotal">0</span>
+    </h3>
+
+    <button class="full-btn"
+      onclick="checkout()">
+      WhatsApp Checkout
+    </button>
+
+  </div>
+
+</div>
+
+
+<!-- PRODUCT MODAL -->
+<div class="modal" id="productModal">
+
+  <div class="modal-box">
+
+    <button class="close"
+      o
